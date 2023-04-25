@@ -40,7 +40,7 @@ const Demo = () => {
             const updatedAllArticles = [newArticle, ...allArticles];
             
             // update state and local storage
-            setArticle(newArticle);
+            setArticle({url: "", summary: ""});
             setAllArticles(updatedAllArticles);
             localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
             
