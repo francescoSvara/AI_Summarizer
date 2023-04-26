@@ -40,7 +40,7 @@ const Demo = () => {
             const updatedAllArticles = [newArticle, ...allArticles];
             
             // update state and local storage
-            setArticle({url: "", summary: ""});
+             setArticle(newArticle, {url: ""});
             setAllArticles(updatedAllArticles);
             localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
             
@@ -101,7 +101,7 @@ const Demo = () => {
                 </form>
                 
                 {/* Browse History */}
-                <div className='flex flex-col gap-1 max-h-60 overflow-y-auto'>
+                <div className='flex flex-col gap-1 max-h-100 overflow-y-auto'>
                     {allArticles.reverse().map((item, index) => (
                         <div
                             key={`link-${index}`}
