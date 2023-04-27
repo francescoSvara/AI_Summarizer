@@ -69,9 +69,9 @@ const Demo = () => {
             
             
     return (
-        <section className='mt-16 w-full flex'>
+        <section className='mt-16 w-full flex flex-col md:flex-row'>
         {/* Search */}
-            <div className='flex flex-col w-1/2 mx-8 mt-8 gap-2'>
+            <div className='flex flex-col md:w-1/2 mx-8 mt-8 gap-2'>
                 <form
                     className='relative flex justify-center items-center'
                     onSubmit={handleSubmit}
@@ -128,31 +128,31 @@ const Demo = () => {
             </div>
             
             {/* Display Result */}
-            <div className='my-10 w-1/2  flex justify-center items-center'>
-                {isFetching ? (
-                    <img src={loader} alt='loader' className='w-20 h-20 object-contain' />
-                    ) : error ? (
-                        <p className='font-inter font-bold text-black text-center'>
-                        Well, that wasn't supposed to happen...
-                            <br />
-                            <span className='font-satoshi font-normal text-gray-700'>
-                            {error?.data?.error}
-                            </span>
-                        </p>
-                    ) : (
-                        article.summary && (
-                            <div className='flex flex-col gap-3'>
-                                <h2 className='font-satoshi font-bold text-gray-600 text-xl'>
-                                Article <span className='blue_gradient'>Summary</span>
-                                </h2>
-                                <div className='summary_box'>
-                                    <p className='font-inter font-medium text-sm text-gray-700'>
-                                    {article.summary}
-                                    </p>
-                                </div>
+            <div className='my-10 md:w-1/2 flex justify-center items-center'>
+            {isFetching ? (
+                <img src={loader} alt='loader' className='w-20 h-20 object-contain' />
+                ) : error ? (
+                    <p className='font-inter font-bold text-black text-center'>
+                    Well, that wasn't supposed to happen...
+                        <br />
+                        <span className='font-satoshi font-normal text-gray-700'>
+                        {error?.data?.error}
+                        </span>
+                    </p>
+                ) : (
+                    article.summary && (
+                        <div className='flex flex-col gap-3'>
+                            <h2 className='font-satoshi font-bold text-gray-600 text-xl'>
+                            Article <span className='blue_gradient'>Summary</span>
+                            </h2>
+                            <div className='summary_box'>
+                                <p className='font-inter font-medium text-sm text-gray-700'>
+                                {article.summary}
+                                </p>
                             </div>
-                        )
-                    )}
+                        </div>
+                    )
+                )}
             </div>                            
         </section>
     );
